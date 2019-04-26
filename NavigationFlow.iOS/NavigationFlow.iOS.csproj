@@ -7,9 +7,9 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{440aa056-593a-4519-8708-27081dee632f}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Blank</RootNamespace>
+    <RootNamespace>NavigationFlow.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Blank</AssemblyName>
+    <AssemblyName>NavigationFlow.iOS</AssemblyName>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
@@ -63,6 +63,11 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Navigation\NavigationService.cs" />
+    <Compile Include="Views\CustomFlow\First\FirstView.cs" />
+    <Compile Include="Views\CustomFlow\First\FirstViewController.cs" />
+    <Compile Include="Views\HomeViewController.cs" />
+    <Compile Include="Views\RootNavigationController.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Entitlements.plist" />
@@ -142,6 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NavigationFlow\NavigationFlow.csproj">
+      <Project>{6C711E29-C320-46A0-90A3-3802E6C8FF13}</Project>
+      <Name>NavigationFlow</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
