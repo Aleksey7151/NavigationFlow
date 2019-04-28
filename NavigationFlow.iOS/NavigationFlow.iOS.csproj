@@ -64,9 +64,16 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
+    <Compile Include="Views\CustomFlow\CustomFlowNavigationController.cs" />
+    <Compile Include="Views\CustomFlow\CustomFlowNavigationViewModel.cs" />
     <Compile Include="Views\CustomFlow\First\FirstView.cs" />
     <Compile Include="Views\CustomFlow\First\FirstViewController.cs" />
-    <Compile Include="Views\HomeViewController.cs" />
+    <Compile Include="Views\CustomFlow\Second\SecondView.cs" />
+    <Compile Include="Views\CustomFlow\Second\SecondViewController.cs" />
+    <Compile Include="Views\CustomFlow\Third\ThirdView.cs" />
+    <Compile Include="Views\CustomFlow\Third\ThirdViewController.cs" />
+    <Compile Include="Views\Home\HomeView.cs" />
+    <Compile Include="Views\Home\HomeViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

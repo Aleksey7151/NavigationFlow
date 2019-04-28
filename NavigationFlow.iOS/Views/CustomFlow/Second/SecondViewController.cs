@@ -2,23 +2,23 @@
 using FlexiMvvm.Views;
 using NavigationFlow.Presentation;
 
-namespace NavigationFlow.iOS.Views.CustomFlow.First
+namespace NavigationFlow.iOS.Views.CustomFlow.Second
 {
-    internal sealed class FirstViewController
-        : BindableViewController<FirstViewModel>
+    internal sealed class SecondViewController
+        : BindableViewController<SecondViewModel>
     {
-        public new FirstView View
+        public new SecondView View
         {
-            get => (FirstView)base.View;
+            get => (SecondView)base.View;
             set => base.View = value;
         }
 
         public override void LoadView()
         {
-            View = new FirstView();
+            View = new SecondView();
         }
 
-        public override void Bind(BindingSet<FirstViewModel> bindingSet)
+        public override void Bind(BindingSet<SecondViewModel> bindingSet)
         {
             base.Bind(bindingSet);
 
