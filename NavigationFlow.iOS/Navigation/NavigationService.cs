@@ -1,8 +1,5 @@
-﻿using System;
-using FlexiMvvm;
-using FlexiMvvm.Navigation;
+﻿using FlexiMvvm.Navigation;
 using FlexiMvvm.ViewModels;
-using FlexiMvvm.Views;
 using NavigationFlow.iOS.Views;
 using NavigationFlow.iOS.Views.CustomFlow;
 using NavigationFlow.iOS.Views.CustomFlow.First;
@@ -28,12 +25,14 @@ namespace NavigationFlow.iOS.Navigation
         public void NavigateToFirst(HomeViewModel fromViewModel)
         {
             var homeViewController = NavigationViewProvider.GetViewController<HomeViewController, HomeViewModel>(fromViewModel);
-
             var customFlowNavigationController = new CustomFlowNavigationController();
-            customFlowNavigationController.ResultSetWeakSubscribe(homeViewController.HandleResult);
-            customFlowNavigationController.SetViewControllers(new UIViewController[] { new FirstViewController() }, false);
+            customFlowNavigationController.PushViewController(new FirstViewController(), false);
 
-            homeViewController.NavigationController.PresentViewController(customFlowNavigationController, true, null);
+            NavigateForResult<CustomFlowNavigationController, FlowResult>(
+                homeViewController,
+                customFlowNavigationController,
+                true,
+                NavigationStrategy.Forward.PresentViewController());
         }
 
         public void NavigateToSecond(FirstViewModel fromViewModel)
@@ -47,19 +46,15 @@ namespace NavigationFlow.iOS.Navigation
         {
             var secondViewController = NavigationViewProvider.GetViewController<SecondViewController, SecondViewModel>(fromViewModel);
 
-            var customFlowNavigationController = (CustomFlowNavigationController)secondViewController.NavigationController;
-
-            var thirdViewController = new ThirdViewController();
-            thirdViewController.ResultSetWeakSubscribe(customFlowNavigationController.HandleResult);
-
-            customFlowNavigationController.PushViewController(thirdViewController, true);
+            secondViewController.NavigationController.PushViewController(new ThirdViewController(), true);
         }
 
         public void SetCustomFlowResult(ThirdViewModel fromViewModel, ResultCode resultCode, FlowResult flowResult)
         {
             var thirdViewController = NavigationViewProvider.GetViewController<ThirdViewController, ThirdViewModel>(fromViewModel);
 
-            thirdViewController.SetResult(resultCode, flowResult);
+            var customFlowNavigationController = (CustomFlowNavigationController) thirdViewController.NavigationController;
+            customFlowNavigationController.SetResult(resultCode, flowResult);
 
             thirdViewController.NavigationController.DismissViewController(true, null);
         }

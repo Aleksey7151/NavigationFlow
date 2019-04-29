@@ -4,7 +4,6 @@ using Foundation;
 using NavigationFlow.Bootstrapper;
 using NavigationFlow.iOS.Navigation;
 using NavigationFlow.iOS.Views;
-using NavigationFlow.iOS.Views.CustomFlow;
 using UIKit;
 
 namespace NavigationFlow.iOS
@@ -24,8 +23,6 @@ namespace NavigationFlow.iOS
         {
             var simpleIoc = new SimpleIoc();
             simpleIoc.Register<INavigationService>(() => new NavigationService());
-
-            simpleIoc.Register(() => new CustomFlowNavigationViewModel());
 
             var config = new BootstrapperConfig();
             config.SetSimpleIoc(simpleIoc);

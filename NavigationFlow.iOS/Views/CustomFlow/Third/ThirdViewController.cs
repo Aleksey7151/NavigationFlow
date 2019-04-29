@@ -1,5 +1,6 @@
 ﻿using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
+using NavigationFlow.iOS.Bindings;
 using NavigationFlow.Presentation;
 
 namespace NavigationFlow.iOS.Views.CustomFlow.Third
@@ -23,7 +24,7 @@ namespace NavigationFlow.iOS.Views.CustomFlow.Third
             base.Bind(bindingSet);
 
             bindingSet.Bind(View.ResultTextField)
-                .For(v => v.EditingChangedBinding())
+                .For(v => v.TextChangedBinding())
                 .To(vm => vm.Result);
 
             bindingSet.Bind(View.AcceptButton)

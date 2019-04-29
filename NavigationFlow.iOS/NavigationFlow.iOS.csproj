@@ -61,11 +61,11 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Bindings\BindingExtensions.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Views\CustomFlow\CustomFlowNavigationController.cs" />
-    <Compile Include="Views\CustomFlow\CustomFlowNavigationViewModel.cs" />
     <Compile Include="Views\CustomFlow\First\FirstView.cs" />
     <Compile Include="Views\CustomFlow\First\FirstViewController.cs" />
     <Compile Include="Views\CustomFlow\Second\SecondView.cs" />
