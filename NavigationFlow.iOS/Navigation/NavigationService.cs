@@ -49,14 +49,28 @@ namespace NavigationFlow.iOS.Navigation
             secondViewController.NavigationController.PushViewController(new ThirdViewController(), true);
         }
 
-        public void SetCustomFlowResult(ThirdViewModel fromViewModel, ResultCode resultCode, FlowResult flowResult)
+        public void NavigateBack<TResult>(ILifecycleViewModelWithResult<TResult> fromViewModel, ResultCode resultCode, TResult result)
+            where TResult : Result
+        {
+            var fromView = NavigationViewProvider.Get(fromViewModel);
+
+            NavigateBack(fromView, resultCode, result, true);
+        }
+
+        public void NavigateBack(ThirdViewModel fromViewModel, ResultCode resultCode, FlowResult result)
         {
             var thirdViewController = NavigationViewProvider.GetViewController<ThirdViewController, ThirdViewModel>(fromViewModel);
+            var customFlowNavigationController = (CustomFlowNavigationController)thirdViewController.NavigationController;
 
-            var customFlowNavigationController = (CustomFlowNavigationController) thirdViewController.NavigationController;
-            customFlowNavigationController.SetResult(resultCode, flowResult);
+            NavigateBack(customFlowNavigationController, resultCode, result, true);
+        }
 
-            thirdViewController.NavigationController.DismissViewController(true, null);
+        public void NavigateBack(FirstViewModel fromViewModel, ResultCode resultCode, FlowResult result)
+        {
+            var firstViewController = NavigationViewProvider.GetViewController<FirstViewController, FirstViewModel>(fromViewModel);
+            var customFlowNavigationController = (CustomFlowNavigationController)firstViewController.NavigationController;
+
+            NavigateBack(customFlowNavigationController, resultCode, result, true);
         }
     }
 }

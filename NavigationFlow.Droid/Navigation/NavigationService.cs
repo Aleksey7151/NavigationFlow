@@ -1,7 +1,7 @@
-﻿using System;
-using Android.Content;
+﻿using Android.Content;
 using FlexiMvvm.Navigation;
 using FlexiMvvm.ViewModels;
+using FlexiMvvm.Views;
 using NavigationFlow.Droid.Views;
 using NavigationFlow.Droid.Views.CustomFlow.First;
 using NavigationFlow.Droid.Views.CustomFlow.Second;
@@ -15,7 +15,8 @@ namespace NavigationFlow.Droid.Navigation
     {
         public void NavigateToHome(EntryViewModel fromViewModel)
         {
-            var splashScreenActivity = NavigationViewProvider.GetActivity<SplashScreenActivity, EntryViewModel>(fromViewModel);
+            var splashScreenActivity =
+                NavigationViewProvider.GetActivity<SplashScreenActivity, EntryViewModel>(fromViewModel);
             var homeIntent = new Intent(splashScreenActivity, typeof(HomeActivity));
             splashScreenActivity.StartActivity(homeIntent);
         }
@@ -24,26 +25,46 @@ namespace NavigationFlow.Droid.Navigation
         {
             var homeActivity = NavigationViewProvider.GetActivity<HomeActivity, HomeViewModel>(fromViewModel);
             var firstIntent = new Intent(homeActivity, typeof(FirstActivity));
-            homeActivity.StartActivity(firstIntent);
+            var requestCode = homeActivity.RequestCode.GetFor<DefaultResultMapper<FlowResult>>();
+
+            homeActivity.StartActivityForResult(firstIntent, requestCode);
         }
 
         public void NavigateToSecond(FirstViewModel fromViewModel)
         {
             var firstActivity = NavigationViewProvider.GetActivity<FirstActivity, FirstViewModel>(fromViewModel);
             var secondIntent = new Intent(firstActivity, typeof(SecondActivity));
-            firstActivity.StartActivity(secondIntent);
+            var requestCode = firstActivity.RequestCode.GetFor<DefaultResultMapper<FlowResult>>();
+
+            firstActivity.StartActivityForResult(secondIntent, requestCode);
         }
 
         public void NavigateToThird(SecondViewModel fromViewModel)
         {
             var secondActivity = NavigationViewProvider.GetActivity<SecondActivity, SecondViewModel>(fromViewModel);
             var thirdIntent = new Intent(secondActivity, typeof(ThirdActivity));
-            secondActivity.StartActivity(thirdIntent);
+            var requestCode = secondActivity.RequestCode.GetFor<DefaultResultMapper<FlowResult>>();
+
+            secondActivity.StartActivityForResult(thirdIntent, requestCode);
         }
 
-        public void SetCustomFlowResult(ThirdViewModel fromViewModel, ResultCode resultCode, FlowResult flowResult)
+        public void NavigateBack<TResult>(ILifecycleViewModelWithResult<TResult> fromViewModel, ResultCode resultCode,
+            TResult result)
+            where TResult : Result
         {
-            throw new NotImplementedException();
+            var fromView = NavigationViewProvider.Get(fromViewModel);
+
+            NavigateBack(fromView, resultCode, result);
+        }
+
+        public void NavigateBack(ThirdViewModel fromViewModel, ResultCode resultCode, FlowResult result)
+        {
+            NavigateBack<FlowResult>(fromViewModel, resultCode, result);
+        }
+
+        public void NavigateBack(FirstViewModel fromViewModel, ResultCode resultCode, FlowResult result)
+        {
+            NavigateBack<FlowResult>(fromViewModel, resultCode, result);
         }
     }
 }

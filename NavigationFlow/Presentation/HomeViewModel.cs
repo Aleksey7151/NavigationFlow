@@ -3,7 +3,8 @@ using FlexiMvvm.ViewModels;
 
 namespace NavigationFlow.Presentation
 {
-    public sealed class HomeViewModel : LifecycleViewModel, ILifecycleViewModelWithResultHandler
+    public sealed class HomeViewModel
+        : LifecycleViewModel, ILifecycleViewModelWithResultHandler
     {
         private readonly INavigationService _navigationService;
         private string _result;
@@ -30,7 +31,7 @@ namespace NavigationFlow.Presentation
         {
             if (resultCode == ResultCode.Canceled)
             {
-                Result = "Cancelled";
+                Result = "Flow was closed without setting Result";
             }
             else if (result is FlowResult flowResult)
             {

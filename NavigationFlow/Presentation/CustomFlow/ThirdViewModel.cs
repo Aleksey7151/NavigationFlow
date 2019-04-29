@@ -31,7 +31,7 @@ namespace NavigationFlow.Presentation
 
         public void SetResult(ResultCode resultCode, FlowResult result)
         {
-            _navigationService.SetCustomFlowResult(this, resultCode, result);
+            _navigationService.NavigateBack(this, resultCode, result);
         }
     }
 }

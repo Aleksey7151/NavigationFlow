@@ -13,6 +13,19 @@ namespace NavigationFlow
 
         void NavigateToThird(SecondViewModel fromViewModel);
 
-        void SetCustomFlowResult(ThirdViewModel fromViewModel, ResultCode resultCode, FlowResult flowResult);
+        void NavigateBack(
+            ThirdViewModel fromViewModel,
+            ResultCode resultCode,
+            FlowResult result);
+
+        void NavigateBack(
+            FirstViewModel fromViewModel,
+            ResultCode resultCode,
+            FlowResult result);
+
+        void NavigateBack<TResult>(
+            ILifecycleViewModelWithResult<TResult> fromViewModel,
+            ResultCode resultCode,
+            TResult result) where TResult : Result;
     }
 }
