@@ -2,13 +2,11 @@
 using FlexiMvvm.Views;
 using UIKit;
 
-namespace NavigationFlow.iOS.Views.Home
+namespace NavigationFlow.iOS.Views.CustomFlow
 {
-    internal sealed class HomeView : LayoutView
+    internal sealed class FirstView : LayoutView
     {
         private UILabel HeaderLabel { get; set; }
-
-        public UILabel ResultLabel { get; private set; }
 
         public UIButton NextButton { get; private set; }
 
@@ -18,12 +16,10 @@ namespace NavigationFlow.iOS.Views.Home
 
             BackgroundColor = UIColor.White;
 
-            HeaderLabel = new UILabel { Text = "Home screen" };
-
-            ResultLabel = new UILabel();
+            HeaderLabel = new UILabel {Text = "First"};
 
             NextButton = new UIButton(UIButtonType.System);
-            NextButton.SetTitle("Go to separate flow", UIControlState.Normal);
+            NextButton.SetTitle("Go to next screen", UIControlState.Normal);
         }
 
         protected override void SetupLayout()
@@ -31,7 +27,6 @@ namespace NavigationFlow.iOS.Views.Home
             base.SetupLayout();
 
             this.AddLayoutSubview(HeaderLabel)
-                .AddLayoutSubview(ResultLabel)
                 .AddLayoutSubview(NextButton);
         }
 
@@ -46,11 +41,7 @@ namespace NavigationFlow.iOS.Views.Home
                 HeaderLabel.WithSameCenterY(this));
 
             this.AddConstraints(
-                ResultLabel.Below(HeaderLabel, 24),
-                ResultLabel.WithSameCenterX(this));
-
-            this.AddConstraints(
-                NextButton.Below(ResultLabel, 24),
+                NextButton.Below(HeaderLabel, 24),
                 NextButton.WithSameCenterX(this));
         }
     }

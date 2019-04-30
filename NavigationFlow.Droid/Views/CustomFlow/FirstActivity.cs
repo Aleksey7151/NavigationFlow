@@ -2,13 +2,12 @@
 using Android.OS;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
-using NavigationFlow.Presentation;
+using NavigationFlow.Core.ViewModels.CustomFlow;
 
-namespace NavigationFlow.Droid.Views.CustomFlow.First
+namespace NavigationFlow.Droid.Views.CustomFlow
 {
     [Activity(Label = "FirstActivity")]
-    internal sealed class FirstActivity
-        : BindableAppCompatActivity<FirstViewModel>
+    internal sealed class FirstActivity : BindableAppCompatActivity<FirstViewModel>
     {
         private FirstActivityViewHolder ViewHolder { get; set; }
 

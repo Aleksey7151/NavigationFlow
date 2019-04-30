@@ -2,15 +2,12 @@
 using Android.OS;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
-using NavigationFlow.Presentation;
+using NavigationFlow.Core.ViewModels;
 
 namespace NavigationFlow.Droid.Views
 {
-    [Activity(
-        Label = "@string/app_name",
-        Theme = "@style/AppTheme")]
-    internal sealed class HomeActivity
-        : BindableAppCompatActivity<HomeViewModel>
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
+    internal sealed class HomeActivity : BindableAppCompatActivity<HomeViewModel>
     {
         private HomeActivityViewHolder ViewHolder { get; set; }
 

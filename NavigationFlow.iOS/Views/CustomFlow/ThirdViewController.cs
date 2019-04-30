@@ -1,12 +1,10 @@
 ﻿using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
-using NavigationFlow.iOS.Bindings;
-using NavigationFlow.Presentation;
+using NavigationFlow.Core.ViewModels.CustomFlow;
 
-namespace NavigationFlow.iOS.Views.CustomFlow.Third
+namespace NavigationFlow.iOS.Views.CustomFlow
 {
-    internal sealed class ThirdViewController
-        : BindableViewController<ThirdViewModel>
+    internal sealed class ThirdViewController : BindableViewController<ThirdViewModel>
     {
         public new ThirdView View
         {
@@ -24,7 +22,7 @@ namespace NavigationFlow.iOS.Views.CustomFlow.Third
             base.Bind(bindingSet);
 
             bindingSet.Bind(View.ResultTextField)
-                .For(v => v.TextChangedBinding())
+                .For(v => v.TextAndEditingChangedBinding())
                 .To(vm => vm.Result);
 
             bindingSet.Bind(View.AcceptButton)

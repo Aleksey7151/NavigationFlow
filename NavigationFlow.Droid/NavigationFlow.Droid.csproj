@@ -57,11 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="Navigation\NavigationService.cs" />
-    <Compile Include="Views\CustomFlow\First\FirstActivity.cs" />
-    <Compile Include="Views\CustomFlow\Second\SecondActivity.cs" />
-    <Compile Include="Views\CustomFlow\Third\ThirdActivity.cs" />
-    <Compile Include="Views\Home\HomeActivity.cs" />
+    <Compile Include="Bootstrapper\AndroidBootstrapper.cs" />
+    <Compile Include="Navigation\AppNavigationService.cs" />
+    <Compile Include="Views\CustomFlow\FirstActivity.cs" />
+    <Compile Include="Views\CustomFlow\SecondActivity.cs" />
+    <Compile Include="Views\CustomFlow\ThirdActivity.cs" />
+    <Compile Include="Views\HomeActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />
@@ -110,9 +111,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\NavigationFlow\NavigationFlow.csproj">
+    <ProjectReference Include="..\NavigationFlow\NavigationFlow.Core.csproj">
       <Project>{6C711E29-C320-46A0-90A3-3802E6C8FF13}</Project>
-      <Name>NavigationFlow</Name>
+      <Name>NavigationFlow.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

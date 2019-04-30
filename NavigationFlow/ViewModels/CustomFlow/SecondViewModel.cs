@@ -1,19 +1,19 @@
 ﻿using System.Windows.Input;
 using FlexiMvvm.ViewModels;
+using NavigationFlow.Core.Navigation;
 
-namespace NavigationFlow.Presentation
+namespace NavigationFlow.Core.ViewModels.CustomFlow
 {
-    public sealed class SecondViewModel
-        : LifecycleViewModel, ILifecycleViewModelWithResult<FlowResult>, ILifecycleViewModelWithResultHandler
+    public sealed class SecondViewModel : LifecycleViewModel, ILifecycleViewModelWithResult<FlowResult>, ILifecycleViewModelWithResultHandler
     {
         private readonly INavigationService _navigationService;
-
-        public ICommand GoToNextCommand => CommandProvider.Get(Move);
 
         public SecondViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
         }
+
+        public ICommand GoToNextCommand => CommandProvider.Get(GoToNext);
 
         public void SetResult(ResultCode resultCode, FlowResult result)
         {
@@ -22,12 +22,15 @@ namespace NavigationFlow.Presentation
 
         public void HandleResult(ResultCode resultCode, Result result)
         {
-            SetResult(resultCode, (FlowResult)result);
+            if (result is FlowResult flowResult)
+            {
+                SetResult(resultCode, flowResult);
+            }
         }
 
-        private void Move()
+        private void GoToNext()
         {
-            _navigationService.NavigateToThird(this);
+            _navigationService.NavigateToThirdPage(this);
         }
     }
 }

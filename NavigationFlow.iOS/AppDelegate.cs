@@ -1,8 +1,8 @@
 ﻿using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
 using Foundation;
-using NavigationFlow.Bootstrapper;
-using NavigationFlow.iOS.Navigation;
+using NavigationFlow.Core.Bootstrapper;
+using NavigationFlow.iOS.Bootstrapper;
 using NavigationFlow.iOS.Views;
 using UIKit;
 
@@ -17,18 +17,13 @@ namespace NavigationFlow.iOS
             set;
         }
 
-        public override bool FinishedLaunching(
-            UIApplication application,
-            NSDictionary launchOptions)
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            var simpleIoc = new SimpleIoc();
-            simpleIoc.Register<INavigationService>(() => new NavigationService());
-
             var config = new BootstrapperConfig();
-            config.SetSimpleIoc(simpleIoc);
+            config.SetSimpleIoc(new SimpleIoc());
 
-            var bootstrapper = new CoreBootstrapper();
-            bootstrapper.Execute(config);
+            var compositeBootstrapper = new CompositeBootstrapper(new IosBootstrapper(), new CoreBootstrapper());
+            compositeBootstrapper.Execute(config);
 
             Window = new UIWindow(UIScreen.MainScreen.Bounds)
             {

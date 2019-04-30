@@ -1,22 +1,26 @@
 ﻿using System.Windows.Input;
 using FlexiMvvm.ViewModels;
+using NavigationFlow.Core.Navigation;
 
-namespace NavigationFlow.Presentation
+namespace NavigationFlow.Core.ViewModels.CustomFlow
 {
-    public sealed class ThirdViewModel
-        : LifecycleViewModel, ILifecycleViewModelWithResult<FlowResult>
+    public sealed class ThirdViewModel : LifecycleViewModel, ILifecycleViewModelWithResult<FlowResult>
     {
         private readonly INavigationService _navigationService;
+
+        public ThirdViewModel(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
 
         public ICommand AcceptCommand => CommandProvider.Get(Accept);
 
         public ICommand DeclineCommand => CommandProvider.Get(Decline);
 
-        public string Result { get; set; }
-
-        public ThirdViewModel(INavigationService navigationService)
+        public string Result
         {
-            _navigationService = navigationService;
+            get => State.GetString();
+            set => State.SetString(value);
         }
 
         private void Accept()

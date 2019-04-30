@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationFlow", "NavigationFlow\NavigationFlow.csproj", "{6C711E29-C320-46A0-90A3-3802E6C8FF13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NavigationFlow.Core", "NavigationFlow\NavigationFlow.Core.csproj", "{6C711E29-C320-46A0-90A3-3802E6C8FF13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationFlow.Droid", "NavigationFlow.Droid\NavigationFlow.Droid.csproj", "{C5471FAA-8C7C-4400-8490-9C599D4399AA}"
 EndProject

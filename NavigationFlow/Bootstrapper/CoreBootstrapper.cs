@@ -1,9 +1,10 @@
 ﻿using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.ViewModels;
-using NavigationFlow.Presentation;
-using NavigationFlow.Presentation.CustomFlow;
+using NavigationFlow.Core.Navigation;
+using NavigationFlow.Core.ViewModels;
+using NavigationFlow.Core.ViewModels.CustomFlow;
 
-namespace NavigationFlow.Bootstrapper
+namespace NavigationFlow.Core.Bootstrapper
 {
     public sealed class CoreBootstrapper : IBootstrapper
     {

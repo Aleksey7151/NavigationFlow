@@ -2,13 +2,12 @@
 using Android.OS;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
-using NavigationFlow.Presentation;
+using NavigationFlow.Core.ViewModels.CustomFlow;
 
-namespace NavigationFlow.Droid.Views.CustomFlow.Second
+namespace NavigationFlow.Droid.Views.CustomFlow
 {
     [Activity(Label = "SecondActivity")]
-    internal sealed class SecondActivity
-        : BindableAppCompatActivity<SecondViewModel>
+    internal sealed class SecondActivity : BindableAppCompatActivity<SecondViewModel>
     {
         private SecondActivityViewHolder ViewHolder { get; set; }
 

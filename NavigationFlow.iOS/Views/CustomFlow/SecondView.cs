@@ -2,7 +2,7 @@
 using FlexiMvvm.Views;
 using UIKit;
 
-namespace NavigationFlow.iOS.Views.CustomFlow.Second
+namespace NavigationFlow.iOS.Views.CustomFlow
 {
     internal sealed class SecondView : LayoutView
     {

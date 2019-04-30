@@ -61,19 +61,19 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Bindings\BindingExtensions.cs" />
+    <Compile Include="Bootstrapper\IosBootstrapper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Navigation\NavigationService.cs" />
+    <Compile Include="Navigation\AppNavigationService.cs" />
     <Compile Include="Views\CustomFlow\CustomFlowNavigationController.cs" />
-    <Compile Include="Views\CustomFlow\First\FirstView.cs" />
-    <Compile Include="Views\CustomFlow\First\FirstViewController.cs" />
-    <Compile Include="Views\CustomFlow\Second\SecondView.cs" />
-    <Compile Include="Views\CustomFlow\Second\SecondViewController.cs" />
-    <Compile Include="Views\CustomFlow\Third\ThirdView.cs" />
-    <Compile Include="Views\CustomFlow\Third\ThirdViewController.cs" />
-    <Compile Include="Views\Home\HomeView.cs" />
-    <Compile Include="Views\Home\HomeViewController.cs" />
+    <Compile Include="Views\CustomFlow\FirstView.cs" />
+    <Compile Include="Views\CustomFlow\FirstViewController.cs" />
+    <Compile Include="Views\CustomFlow\SecondView.cs" />
+    <Compile Include="Views\CustomFlow\SecondViewController.cs" />
+    <Compile Include="Views\CustomFlow\ThirdView.cs" />
+    <Compile Include="Views\CustomFlow\ThirdViewController.cs" />
+    <Compile Include="Views\HomeView.cs" />
+    <Compile Include="Views\HomeViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,9 +156,9 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NavigationFlow\NavigationFlow.csproj">
+    <ProjectReference Include="..\NavigationFlow\NavigationFlow.Core.csproj">
       <Project>{6C711E29-C320-46A0-90A3-3802E6C8FF13}</Project>
-      <Name>NavigationFlow</Name>
+      <Name>NavigationFlow.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

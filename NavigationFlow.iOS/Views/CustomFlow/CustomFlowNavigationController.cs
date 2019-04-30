@@ -1,10 +1,9 @@
 ﻿using FlexiMvvm.Views;
-using NavigationFlow.Presentation.CustomFlow;
+using NavigationFlow.Core.ViewModels.CustomFlow;
 
 namespace NavigationFlow.iOS.Views.CustomFlow
 {
-    internal sealed class CustomFlowNavigationController
-        : NavigationController<CustomFlowNavigationViewModel>
+    internal sealed class CustomFlowNavigationController : NavigationController<CustomFlowNavigationViewModel>
     {
     }
 }

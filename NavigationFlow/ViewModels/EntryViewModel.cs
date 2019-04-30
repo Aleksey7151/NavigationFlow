@@ -1,6 +1,7 @@
 ﻿using FlexiMvvm.ViewModels;
+using NavigationFlow.Core.Navigation;
 
-namespace NavigationFlow.Presentation
+namespace NavigationFlow.Core.ViewModels
 {
     public sealed class EntryViewModel : LifecycleViewModel
     {
@@ -15,7 +16,10 @@ namespace NavigationFlow.Presentation
         {
             base.Initialize(recreated);
 
-            _navigationService.NavigateToHome(this);
+            if (!recreated)
+            {
+                _navigationService.NavigateToHome(this);
+            }
         }
     }
 }

@@ -1,11 +1,10 @@
 ﻿using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
-using NavigationFlow.Presentation;
+using NavigationFlow.Core.ViewModels;
 
-namespace NavigationFlow.iOS.Views.Home
+namespace NavigationFlow.iOS.Views
 {
-    internal sealed class HomeViewController
-        : BindableViewController<HomeViewModel>
+    internal sealed class HomeViewController : BindableViewController<HomeViewModel>
     {
         public new HomeView View
         {

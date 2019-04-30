@@ -2,13 +2,12 @@
 using Android.OS;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
-using NavigationFlow.Presentation;
+using NavigationFlow.Core.ViewModels.CustomFlow;
 
-namespace NavigationFlow.Droid.Views.CustomFlow.Third
+namespace NavigationFlow.Droid.Views.CustomFlow
 {
     [Activity(Label = "ThirdActivity")]
-    internal sealed class ThirdActivity
-        : BindableAppCompatActivity<ThirdViewModel>
+    internal sealed class ThirdActivity : BindableAppCompatActivity<ThirdViewModel>
     {
         private ThirdActivityViewHolder ViewHolder { get; set; }
 

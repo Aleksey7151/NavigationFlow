@@ -1,7 +1,7 @@
 ﻿using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
 
-namespace NavigationFlow.Bootstrapper
+namespace NavigationFlow.Core.Bootstrapper
 {
     public static class BootstrapperConfigExtensions
     {

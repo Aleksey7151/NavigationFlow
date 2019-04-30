@@ -1,12 +1,11 @@
 ﻿using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
-using NavigationFlow.Presentation;
+using NavigationFlow.Core.ViewModels.CustomFlow;
 using UIKit;
 
-namespace NavigationFlow.iOS.Views.CustomFlow.First
+namespace NavigationFlow.iOS.Views.CustomFlow
 {
-    internal sealed class FirstViewController
-        : BindableViewController<FirstViewModel>
+    internal sealed class FirstViewController : BindableViewController<FirstViewModel>
     {
         private UIBarButtonItem CloseButton { get; } = new UIBarButtonItem("Close", UIBarButtonItemStyle.Plain, null);
 

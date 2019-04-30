@@ -1,11 +1,10 @@
 ﻿using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
-using NavigationFlow.Presentation;
+using NavigationFlow.Core.ViewModels.CustomFlow;
 
-namespace NavigationFlow.iOS.Views.CustomFlow.Second
+namespace NavigationFlow.iOS.Views.CustomFlow
 {
-    internal sealed class SecondViewController
-        : BindableViewController<SecondViewModel>
+    internal sealed class SecondViewController : BindableViewController<SecondViewModel>
     {
         public new SecondView View
         {
